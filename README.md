@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Heart Disease Prediction using MLOps
 
 ## Project
@@ -35,3 +36,6 @@ Heart Disease UCI Dataset
 ## Project Status
 
 Work in Progress
+=======
+# HariMLOpsAssgn1
+>>>>>>> c5fb99a14cfdb349165a9f26d06915570888f150

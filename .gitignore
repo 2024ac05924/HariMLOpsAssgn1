@@ -216,3 +216,16 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local Python environment
+.venv/
+
+# VS Code
+.vscode/
+
+# Python cache
+__pycache__/
+
+# OS files
+.DS_Store
+Thumbs.db

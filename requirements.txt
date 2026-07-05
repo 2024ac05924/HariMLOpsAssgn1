@@ -11,5 +11,4 @@ uvicorn
 joblib
 pytest
 requests
-jupyter
-notebook
+prometheus-client

@@ -83,6 +83,8 @@ Thumbs.db
 # Temporary files
 tempCodeRunnerFile.py
 
+# MLflow
+mlruns/
 
 # Python cache
 *.pyc

@@ -24,13 +24,13 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # -------------------------------------------------
-# Expose FastAPI Port
+# Expose FastAPI Port/
 # -------------------------------------------------
-EXPOSE 8000
+EXPOSE 8080
 
 # -------------------------------------------------
 # Start FastAPI
 # -------------------------------------------------
 # Notice we're using: python -m uvicorn instead of uvicorn.exe
 # Because  Windows policy blocked uvicorn.exe. This approach is also portable.    
-CMD ["python", "-m", "uvicorn", "api.app:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["python", "-m", "uvicorn", "api.app:app", "--host", "0.0.0.0", "--port", "8080"]

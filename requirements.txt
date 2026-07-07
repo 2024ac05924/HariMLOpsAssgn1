@@ -12,3 +12,7 @@ joblib
 pytest
 requests
 prometheus-client
+pytest
+pytest-cov
+httpx
+flake8

@@ -89,5 +89,9 @@ mlruns/
 # Python cache
 *.pyc
 
+#Logs
+logs/
+*.log
+
 # Streamlit
 .streamlit/secrets.toml

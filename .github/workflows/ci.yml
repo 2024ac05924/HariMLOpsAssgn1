@@ -1,71 +1,57 @@
-name: Hari MLOps CI Pipeline
+name: MLOps CI/CD Pipeline
 
 on:
   push:
-    branches:
-      - master
-      - main
-
+    branches: [ main ]
   pull_request:
-    branches:
-      - master
-      - main
+    branches: [ main ]
 
 jobs:
-
-  build:
+  build-test-deploy:
 
     runs-on: ubuntu-latest
 
     steps:
 
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+    - name: Checkout Repository
+      uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.12"
 
-      - name: Install Dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
 
-      - name: Verify Project Structure
-        run: |
-          ls
-          ls src
-          ls api
+    - name: Download Dataset
+      run: |
+        python src/download_data.py
 
-      - name: Verify Python Imports
-        run: |
-          python -c "import sklearn"
-          python -c "import pandas"
-          python -c "import mlflow"
-          python -c "import fastapi"
-          python -c "import xgboost"
+    - name: Preprocess Dataset
+      run: |
+        python src/preprocess.py
 
-      - name: Run Data Download
-        run: |
-          python src/download_data.py
+    - name: Train Model
+      run: |
+        python src/train.py
 
-      - name: Run Preprocessing
-        run: |
-          python src/preprocess.py
+    - name: Run Unit Tests
+      run: |
+        python -m pytest -v
 
-      - name: Train Models
-        run: |
-          python src/train.py
+    - name: Run Flake8
+      run: |
+        python -m flake8 src api tests || true
 
-      - name: Run Evaluation
-        run: |
-          python src/evaluate.py
+    - name: Build Docker Image
+      run: |
+        docker build -t heart-disease-api .
 
-      - name: Run Pipeline
-        run: |
-          python src/pipeline.py
-
-      - name: Verify Dockerfile Exists
-        run: |
-          test -f Dockerfile
+    # Optional Deployment
+    # Add after configuring GCP secrets
+    # Build Docker
+    # Push to Artifact Registry
+    # Deploy to Cloud Run

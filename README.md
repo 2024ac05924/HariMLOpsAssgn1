@@ -101,161 +101,159 @@ The objectives of this project are:
 # Dataset
 Dataset Used:
 
-    UCI Cleveland Heart Disease Dataset
+UCI Cleveland Heart Disease Dataset
 
 Features include:
 
-    Age
-    Sex
-    Chest Pain Type
-    Resting Blood Pressure
-    Cholesterol
-    Fasting Blood Sugar
-    Rest ECG
-    Maximum Heart Rate
-    Exercise Induced Angina
-    Old Peak
-    Slope
-    Number of Major Vessels
-    Thalassemia
-
-    Target:
-
-        0 → No Heart Disease
-        1 → Heart Disease
+Age
+Sex
+Chest Pain Type
+Resting Blood Pressure
+Cholesterol
+Fasting Blood Sugar
+Rest ECG
+Maximum Heart Rate
+Exercise Induced Angina
+Old Peak
+Slope
+Number of Major Vessels
+Thalassemia
+Target:
+    0 → No Heart Disease
+    1 → Heart Disease
 ---
 # Project Structure
 
 HariMLOpsAssgn1/
 
-├── api/
-│   └── app.py
-│
-├── artifacts/
-│   ├── scaler.pkl
-│   └── model_metadata.json
-│
-├── data/
-│   ├── raw/
-│   └── processed/
-│
-├── k8s/
-│   ├── deployment.yaml
-│   └── service.yaml
-│
-├── models/
-│   └── best_model.pkl
-│
-├── notebooks/
-│
-├── prometheus/
-│   └── prometheus.yml
-│
-├── src/
-│   ├── download_data.py
-│   ├── preprocess.py
-│   ├── train.py
-│   ├── evaluate.py
-│   ├── pipeline.py
-│   └── utils.py
-│
-├── tests/
-│   ├── test_api.py
-│   ├── test_model.py
-│   └── test_pipeline.py
-│
-├── Dockerfile
-├── docker-compose.yml
-├── requirements.txt
-├── README.md
-└── OpenSpec.md
+        ├── api/
+        │   └── app.py
+        │
+        ├── artifacts/
+        │   ├── scaler.pkl
+        │   └── model_metadata.json
+        │
+        ├── data/
+        │   ├── raw/
+        │   └── processed/
+        │
+        ├── k8s/
+        │   ├── deployment.yaml
+        │   └── service.yaml
+        │
+        ├── models/
+        │   └── best_model.pkl
+        │
+        ├── notebooks/
+        │
+        ├── prometheus/
+        │   └── prometheus.yml
+        │
+        ├── src/
+        │   ├── download_data.py
+        │   ├── preprocess.py
+        │   ├── train.py
+        │   ├── evaluate.py
+        │   ├── pipeline.py
+        │   └── utils.py
+        │
+        ├── tests/
+        │   ├── test_api.py
+        │   ├── test_model.py
+        │   └── test_pipeline.py
+        │
+        ├── Dockerfile
+        ├── docker-compose.yml
+        ├── requirements.txt
+        ├── README.md
+        └── OpenSpec.md
 ---
 # Data Preprocessing
 The preprocessing pipeline performs:
 
-    Missing value handling
-    Data cleaning
-    Binary target conversion
-    Train-Test Split
-    Feature Scaling using StandardScaler
-    Saving fitted scaler for inference
+Missing value handling
+Data cleaning
+Binary target conversion
+Train-Test Split
+Feature Scaling using StandardScaler
+Saving fitted scaler for inference
 
-    Artifacts generated:
-        artifacts/scaler.pkl
+Artifacts generated:
+    artifacts/scaler.pkl
 ---
 # Model Training
-    The following machine learning models were trained:
+The following machine learning models were trained:
 
-    Logistic Regression
-    Random Forest Classifier
-    XGBoost Classifier
+Logistic Regression
+Random Forest Classifier
+XGBoost Classifier
 
-    Evaluation metrics:
+Evaluation metrics:
 
-    Accuracy
-    Precision
-    Recall
-    F1 Score
-    ROC-AUC
+Accuracy
+Precision
+Recall
+F1 Score
+ROC-AUC
 
 The best performing model is automatically saved as:
     models/best_model.pkl
 ---
 # MLflow Experiment Tracking
-    MLflow is used to record:
+MLflow is used to record:
 
-    Parameters
-    Metrics
-    Model Artifacts
-    Best Model
-    Experiment Runs
+Parameters
+Metrics
+Model Artifacts
+Best Model
+Experiment Runs
 
-    Start MLflow locally:
-    mlflow ui
-        Open: http://localhost:5000
+Start MLflow locally:
+mlflow ui
+    Open: http://localhost:5000
 
 Screenshot MLFlow
 ![MLflow](images/mlflow.png)
 ![MLflow](images/mlflow1.png)
 ---
 # FastAPI
-    The trained model is exposed as a REST API using FastAPI.
+The trained model is exposed as a REST API using FastAPI.
 
-    command ran locally:
+command ran locally:
 
     uvicorn api.app:app --reload
 
-    Swagger UI:
+Swagger UI:
 
     http://localhost:8000/docs
 
-    Endpoints:
+Endpoints:
 
-        Health Check
-        GET /health
-        Metrics
-        GET /metrics        
-        Prediction
-        POST /predict
+Health Check
+GET /health
+Metrics
+GET /metrics        
+Prediction
+POST /predict
 
-    Example Request:
+Example Request:
 
-            {
-            "age": 63,
-            "sex": 1,
-            "cp": 3,
-            "trestbps": 145,
-            "chol": 233,
-            "fbs": 1,
-            "restecg": 0,
-            "thalach": 150,
-            "exang": 0,
-            "oldpeak": 2.3,
-            "slope": 0,
-            "ca": 0,
-            "thal": 1
-            }
-    FastAPI ScreenShots
+        {
+        "age": 63,
+        "sex": 1,
+        "cp": 3,
+        "trestbps": 145,
+        "chol": 233,
+        "fbs": 1,
+        "restecg": 0,
+        "thalach": 150,
+        "exang": 0,
+        "oldpeak": 2.3,
+        "slope": 0,
+        "ca": 0,
+        "thal": 1
+        }
+FastAPI ScreenShots
             ![Swagger UI](images/swagger.png)
 ---
 # Docker
@@ -272,16 +270,16 @@ List Running Containers
 ![Docker1](images/docker1.png)
 ---
 # Google Cloud Deployment
-    The Docker image is pushed to Google Artifact Registry and deployed using Google Cloud Run.
+The Docker image is pushed to Google Artifact Registry and deployed using Google Cloud Run.
 
-    Deployment Steps:
+Deployment Steps:
 
-        docker build
-        docker tag
-        docker push
-        gcloud run deploy
+    docker build
+    docker tag
+    docker push
+    gcloud run deploy
 
-    Cloud Run Service URL:
+Cloud Run Service URL:
     https://heart-disease-api-985530495653.asia-south1.run.app
 
 ![Cloud Run](images/cloudrun.png)
@@ -290,8 +288,8 @@ List Running Containers
 # Kubernetes
 Kubernetes manifests included:
 
-    Deployment
-    Service
+Deployment
+Service
 
 Deploy locally:
 
@@ -309,41 +307,41 @@ Verify:
 # Monitoring (Prometheus & Grafana)
 Prometheus
 
-    Prometheus scrapes API metrics.
+Prometheus scrapes API metrics.
 
-    Run:
-    docker compose up
+Run:
+   docker compose up
 
-    Open:
-    http://localhost:9090
+Open:
+   http://localhost:9090
 
-    ![Prometheus](images/prometheus.png)
+![Prometheus](images/prometheus.png)
 Grafana
 
-    Grafana visualizes metrics.
+Grafana visualizes metrics.
 
-    Open:
+Open:
     http://localhost:3000
 
-    Default Login
-        admin
-        admin
-    ![Grafana](images/grafana.png)
+Default Login
+     admin
+     admin
+![Grafana](images/grafana.png)
 ---
 # Testing
 Unit tests were implemented using Pytest.
 
-    Execute:
-        python -m pytest
+Execute:
+      python -m pytest
 
-    Result:
-        5 tests passed successfully
+Result:
+      5 tests passed successfully
 
-    Tests include:
-        API Testing
-        Model Loading
-        Pipeline Validation
-    ![Test Execution](images/tests.png)
+Tests include:
+      API Testing
+      Model Loading
+      Pipeline Validation
+![Test Execution](images/tests.png)
 ---
 # Code Quality
 Run Flake8:
@@ -382,42 +380,42 @@ Pipeline stages:
 ---
 # Results
 Successfully implemented:
-    End-to-End ML Pipeline
-    MLflow Experiment Tracking
-    REST API using FastAPI
-    Docker Containerization
-    Google Cloud Deployment
-    Kubernetes Deployment Manifests
-    Prometheus Monitoring
-    Grafana Dashboard
-    Automated Unit Testing
-    CI/CD Pipeline
+End-to-End ML Pipeline
+MLflow Experiment Tracking
+REST API using FastAPI
+Docker Containerization
+Google Cloud Deployment
+Kubernetes Deployment Manifests
+Prometheus Monitoring
+Grafana Dashboard
+Automated Unit Testing
+CI/CD Pipeline
 ---
 # Future Improvements
 Possible future enhancements include:
 
-    Model Registry using MLflow
-    Continuous Model Retraining
-    Feature Store Integration
-    Kubernetes Deployment on Google Kubernetes Engine (GKE)
-    Load Balancing
-    Horizontal Pod Autoscaling
-    Model Drift Detection
+Model Registry using MLflow
+Continuous Model Retraining
+Feature Store Integration
+Kubernetes Deployment on Google Kubernetes Engine (GKE)
+Load Balancing
+Horizontal Pod Autoscaling
+Model Drift Detection
 ---   
 # References
-    UCI Machine Learning Repository
-    Scikit-learn Documentation
-    FastAPI Documentation
-    MLflow Documentation
-    Docker Documentation
-    Kubernetes Documentation
-    Google Cloud Documentation
-    Prometheus Documentation
-    Grafana Documentation
+UCI Machine Learning Repository
+Scikit-learn Documentation
+FastAPI Documentation
+MLflow Documentation
+Docker Documentation
+Kubernetes Documentation
+Google Cloud Documentation
+Prometheus Documentation
+Grafana Documentation
 ---
 # Author
 Project: Heart Disease Prediction using MLOps
 By: Hariprasad joshi ID: 2024AC05924
 
-    Developed as part of an MLOps assignment demonstrating the complete Machine Learning lifecycle from data ingestion to cloud deployment, monitoring, testing, and CI/CD automation.
+Developed as part of an MLOps assignment demonstrating the complete Machine Learning lifecycle from data ingestion to cloud deployment, monitoring, testing, and CI/CD automation.
 ---

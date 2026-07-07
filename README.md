@@ -40,7 +40,7 @@ The objectives of this project are:
 
 # Project Architecture
 
-```
+
 ![Architecture](images/architecture.png)
 
                      Heart Disease Dataset
@@ -76,7 +76,7 @@ The objectives of this project are:
                               │
                               ▼
                      Grafana Dashboard
-
+---
 # Technologies Used
 | Technology        | Purpose                 |
 | ----------------- | ----------------------- |
@@ -97,7 +97,7 @@ The objectives of this project are:
 | Pytest            | Testing                 |
 | Flake8            | Code Quality            |
 | GitHub Actions    | CI/CD                   |
-
+---
 # Dataset
 Dataset Used:
 
@@ -123,7 +123,7 @@ Features include:
 
         0 → No Heart Disease
         1 → Heart Disease
-
+---
 # Project Structure
 
 HariMLOpsAssgn1/
@@ -169,7 +169,7 @@ HariMLOpsAssgn1/
 ├── requirements.txt
 ├── README.md
 └── OpenSpec.md
-
+---
 # Data Preprocessing
 The preprocessing pipeline performs:
 
@@ -182,7 +182,7 @@ The preprocessing pipeline performs:
 
     Artifacts generated:
         artifacts/scaler.pkl
-
+---
 # Model Training
     The following machine learning models were trained:
 
@@ -200,7 +200,7 @@ The preprocessing pipeline performs:
 
 The best performing model is automatically saved as:
     models/best_model.pkl
-
+---
 # MLflow Experiment Tracking
     MLflow is used to record:
 
@@ -217,7 +217,7 @@ The best performing model is automatically saved as:
 Screenshot MLFlow
 ![MLflow](images/mlflow.png)
 ![MLflow](images/mlflow1.png)
-
+---
 # FastAPI
     The trained model is exposed as a REST API using FastAPI.
 
@@ -257,6 +257,7 @@ Screenshot MLFlow
             }
     FastAPI ScreenShots
             ![Swagger UI](images/swagger.png)
+---
 # Docker
 Commands used to Build Docker Image
     docker build -t heart-disease-api .
@@ -269,7 +270,7 @@ List Running Containers
 
 ![Docker](images/docker.png)
 ![Docker1](images/docker1.png)
-
+---
 # Google Cloud Deployment
     The Docker image is pushed to Google Artifact Registry and deployed using Google Cloud Run.
 
@@ -285,7 +286,7 @@ List Running Containers
 
 ![Cloud Run](images/cloudrun.png)
 ![Cloud Run Metrics](images/cloudrunmetrics.png)
-
+---
 # Kubernetes
 Kubernetes manifests included:
 
@@ -304,7 +305,7 @@ Verify:
     kubectl get deployments
 
 ![Kubernetes](images/kubernetes.png)
-
+---
 # Monitoring (Prometheus & Grafana)
 Prometheus
 
@@ -328,7 +329,7 @@ Grafana
         admin
         admin
     ![Grafana](images/grafana.png)
-
+---
 # Testing
 Unit tests were implemented using Pytest.
 
@@ -343,6 +344,7 @@ Unit tests were implemented using Pytest.
         Model Loading
         Pipeline Validation
     ![Test Execution](images/tests.png)
+---
 # Code Quality
 Run Flake8:
     python -m flake8 src api tests
@@ -353,7 +355,7 @@ Flake8 checks:
     Imports
     Unused variables
 ![Code Quality test](images/flake8.png)
-
+---
 # GitHub Actions CI/CD
 ![CICD Pipeline](images/cicd.png)
 Pipeline stages:
@@ -377,7 +379,7 @@ Pipeline stages:
         Deploy
 ![GitHub Actions](images/github-actions.png)
 ![GitHub Code](images/github-code.png)
-
+---
 # Results
 Successfully implemented:
     End-to-End ML Pipeline
@@ -390,7 +392,7 @@ Successfully implemented:
     Grafana Dashboard
     Automated Unit Testing
     CI/CD Pipeline
-
+---
 # Future Improvements
 Possible future enhancements include:
 
@@ -401,7 +403,7 @@ Possible future enhancements include:
     Load Balancing
     Horizontal Pod Autoscaling
     Model Drift Detection
-    
+---   
 # References
     UCI Machine Learning Repository
     Scikit-learn Documentation
@@ -412,9 +414,10 @@ Possible future enhancements include:
     Google Cloud Documentation
     Prometheus Documentation
     Grafana Documentation
-
+---
 # Author
 Project: Heart Disease Prediction using MLOps
 By: Hariprasad joshi ID: 2024AC05924
 
     Developed as part of an MLOps assignment demonstrating the complete Machine Learning lifecycle from data ingestion to cloud deployment, monitoring, testing, and CI/CD automation.
+---

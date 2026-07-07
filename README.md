@@ -1,5 +1,5 @@
 # ❤️ Heart Disease Prediction using MLOps 
-# (Name: Hari Prasad joshi ID: 2024AC05924)
+# (Name: Hari Prasad Joshi ID: 2024AC05924)
 
 ---
 
@@ -103,24 +103,23 @@ Dataset Used:
 
 UCI Cleveland Heart Disease Dataset
 
-Features include:
-
-Age
-Sex
-Chest Pain Type
-Resting Blood Pressure
-Cholesterol
-Fasting Blood Sugar
-Rest ECG
-Maximum Heart Rate
-Exercise Induced Angina
-Old Peak
-Slope
-Number of Major Vessels
-Thalassemia
-Target:
-    0 → No Heart Disease
-    1 → Heart Disease
+    Features include:
+    Age
+    Sex
+    Chest Pain Type
+    Resting Blood Pressure
+    Cholesterol
+    Fasting Blood Sugar
+    Rest ECG
+    Maximum Heart Rate
+    Exercise Induced Angina
+    Old Peak
+    Slope
+    Number of Major Vessels
+    Thalassemia
+    Target:
+        0 → No Heart Disease
+        1 → Heart Disease
 ---
 # Project Structure
 
@@ -178,41 +177,41 @@ Train-Test Split
 Feature Scaling using StandardScaler
 Saving fitted scaler for inference
 
-Artifacts generated:
-    artifacts/scaler.pkl
+    Artifacts generated:
+        artifacts/scaler.pkl
 ---
 # Model Training
 The following machine learning models were trained:
 
-Logistic Regression
-Random Forest Classifier
-XGBoost Classifier
+- Logistic Regression
+- Random Forest Classifier
+- XGBoost Classifier
 
 Evaluation metrics:
 
-Accuracy
-Precision
-Recall
-F1 Score
-ROC-AUC
+- Accuracy
+- Precision
+- Recall
+- F1 Score
+- ROC-AUC
 
-The best performing model is automatically saved as:
-    models/best_model.pkl
+    The best performing model is automatically saved as:
+        models/best_model.pkl
 ---
 # MLflow Experiment Tracking
 MLflow is used to record:
 
-Parameters
-Metrics
-Model Artifacts
-Best Model
-Experiment Runs
+- Parameters
+- Metrics
+- Model Artifacts
+- Best Model
+- Experiment Runs
 
 Start MLflow locally:
-mlflow ui
-    Open: http://localhost:5000
+    mlflow ui
+        Open: http://localhost:5000
 
-Screenshot MLFlow
+    Screenshot MLFlow
 ![MLflow](images/mlflow.png)
 ![MLflow](images/mlflow1.png)
 ---
@@ -230,11 +229,11 @@ Swagger UI:
 Endpoints:
 
 Health Check
-GET /health
+    GET /health
 Metrics
-GET /metrics        
+    GET /metrics        
 Prediction
-POST /predict
+    POST /predict
 
 Example Request:
 
@@ -258,13 +257,13 @@ FastAPI ScreenShots
 ---
 # Docker
 Commands used to Build Docker Image
-    docker build -t heart-disease-api .
+        docker build -t heart-disease-api .
 
 Run Docker Container
-    docker run -p 8000:8000 heart-disease-api
+        docker run -p 8000:8000 heart-disease-api
 
 List Running Containers
-    docker ps
+        docker ps
 
 ![Docker](images/docker.png)
 ![Docker1](images/docker1.png)
@@ -287,9 +286,8 @@ Cloud Run Service URL:
 ---
 # Kubernetes
 Kubernetes manifests included:
-
-Deployment
-Service
+    Deployment
+    Service
 
 Deploy locally:
 
@@ -305,42 +303,43 @@ Verify:
 ![Kubernetes](images/kubernetes.png)
 ---
 # Monitoring (Prometheus & Grafana)
-Prometheus
+##Prometheus
 
 Prometheus scrapes API metrics.
 
-Run:
-   docker compose up
+    Run:
+        docker compose up
 
-Open:
-   http://localhost:9090
+    Open:
+        http://localhost:9090
 
 ![Prometheus](images/prometheus.png)
-Grafana
+##Grafana
 
 Grafana visualizes metrics.
 
-Open:
-    http://localhost:3000
+    Open:
+        http://localhost:3000
 
-Default Login
-     admin
-     admin
+    Default Login
+        admin
+        admin
 ![Grafana](images/grafana.png)
 ---
 # Testing
 Unit tests were implemented using Pytest.
 
-Execute:
-      python -m pytest
+    Execute:
+        python -m pytest
 
-Result:
-      5 tests passed successfully
+    Result:
+        5 tests passed successfully
 
 Tests include:
-      API Testing
-      Model Loading
-      Pipeline Validation
+        API Testing
+        Model Loading
+        Pipeline Validation
+
 ![Test Execution](images/tests.png)
 ---
 # Code Quality
@@ -348,14 +347,17 @@ Run Flake8:
     python -m flake8 src api tests
 
 Flake8 checks:
+    
     PEP8 compliance
     Formatting
     Imports
     Unused variables
+
 ![Code Quality test](images/flake8.png)
 ---
 # GitHub Actions CI/CD
 ![CICD Pipeline](images/cicd.png)
+
 Pipeline stages:
 
         Push Code
@@ -379,43 +381,43 @@ Pipeline stages:
 ![GitHub Code](images/github-code.png)
 ---
 # Results
-Successfully implemented:
-End-to-End ML Pipeline
-MLflow Experiment Tracking
-REST API using FastAPI
-Docker Containerization
-Google Cloud Deployment
-Kubernetes Deployment Manifests
-Prometheus Monitoring
-Grafana Dashboard
-Automated Unit Testing
-CI/CD Pipeline
+- Successfully implemented:
+- End-to-End ML Pipeline
+- MLflow Experiment Tracking
+- REST API using FastAPI
+- Docker Containerization
+- Google Cloud Deployment
+- Kubernetes Deployment Manifests
+- Prometheus Monitoring
+- Grafana Dashboard
+- Automated Unit Testing
+- CI/CD Pipeline
 ---
 # Future Improvements
 Possible future enhancements include:
 
-Model Registry using MLflow
-Continuous Model Retraining
-Feature Store Integration
-Kubernetes Deployment on Google Kubernetes Engine (GKE)
-Load Balancing
-Horizontal Pod Autoscaling
-Model Drift Detection
+- Model Registry using MLflow
+- Continuous Model Retraining
+- Feature Store Integration
+- Kubernetes Deployment on Google Kubernetes Engine (GKE)
+- Load Balancing
+- Horizontal Pod Autoscaling
+- Model Drift Detection
 ---   
 # References
-UCI Machine Learning Repository
-Scikit-learn Documentation
-FastAPI Documentation
-MLflow Documentation
-Docker Documentation
-Kubernetes Documentation
-Google Cloud Documentation
-Prometheus Documentation
-Grafana Documentation
+- UCI Machine Learning Repository
+- Scikit-learn Documentation
+- FastAPI Documentation
+- MLflow Documentation
+- Docker Documentation
+- Kubernetes Documentation
+- Google Cloud Documentation
+- Prometheus Documentation
+- Grafana Documentation
 ---
 # Author
 Project: Heart Disease Prediction using MLOps
 By: Hariprasad joshi ID: 2024AC05924
 
-Developed as part of an MLOps assignment demonstrating the complete Machine Learning lifecycle from data ingestion to cloud deployment, monitoring, testing, and CI/CD automation.
+    Developed as part of an MLOps assignment demonstrating the complete Machine Learning lifecycle from data ingestion to cloud deployment, monitoring, testing, and CI/CD automation.
 ---
